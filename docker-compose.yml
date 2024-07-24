@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./dofd-05-kajihan
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_BASE_URL=http://backend:5000/api
+
+  backend:
+    build: ./python-app-kajihan
+    ports:
+      - "5000:5000"
